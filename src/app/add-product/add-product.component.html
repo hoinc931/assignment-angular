@@ -1,0 +1,32 @@
+<div class="container">
+  <form action="" >
+    <div class="form-group mx-2 my-3">
+      <label for="">Name: </label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="product.name">
+    </div>
+    <div class="form-group mx-2 my-3">
+      <label for="">Category: </label>
+      <select name="categoryId" [(ngModel)]="product.categoryId" class="form-control" >
+        <option value="{{product.categoryId}}">Choose category</option>
+        <option value="{{category.id}}" *ngFor='let category of categories' >{{category.name}}</option>
+      </select>
+    </div>
+    <div class="form-group mx-2 my-3">
+      <label for="">Description: </label>
+      <input type="text" class="form-control" name="description" [(ngModel)]="product.description">
+    </div>
+    <div class="form-group mx-2 my-3">
+      <label for="">Status: </label>
+      <input type="checkbox" class="form-check-input" name="status" [(ngModel)]="product.status">
+    </div>
+
+    <div class="form-group mx-2 my-3">
+      <label for="">Image: </label>
+      <input type="text" class="form-control" name="image" [(ngModel)]="product.image">
+    </div>
+
+    <div class="form-group mx-2 my-3">
+      <button (click)="onHandleAdd()" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,62 @@
+<!-- <div class="row mx-auto">
+  <div class="col-3" *ngFor="let product of products" >
+    <div class="card" style="width: 18rem;" >
+      <img [src]="product.img" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <button class="btn btn-primary" (click)="detail(product.id)">Detail</button>
+        <button class="btn btn-primary"><a routerLink="/product/{{product.id}}/detail">Detail</a></button>
+        <button class="btn btn-danger me-2" (click)="handleRemove(product.id)">remove</button>
+        <a routerLink="/product-update/{{product.id}}"><button class="btn btn-success me-2">update</button></a>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div id="detail" *ngIf="selectedProduct">
+  {{selectedProduct}}
+</div> -->
+<div class="row">
+  <div class="col-2">
+    <h1>Danh mục</h1>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let category of categories" (click)="changeProduct(category.id)"><span>{{category.name}}</span></li>
+      <!-- <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li> -->
+    </ul>
+  </div>
+
+  <div class="col-10">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Image</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{product.name}}</td>
+          <td><img width="100px" [src]="product.image" alt="" id="image"></td>
+          <td>{{product.description}}</td>
+          <td>{{product.status ? "Còn" : "Hết"}}</td>
+          <td>
+            <button class="btn btn-primary me-2"><a routerLink="/product/{{product.categoryId}}-{{product.id}}/detail">Detail</a></button>
+            <button class="btn btn-danger me-2" (click)="handleRemove(product)">Remove</button>
+            <button class="btn btn-success me-2"><a routerLink="/product-update/{{product.categoryId}}-{{product.id}}" class="btnupdate">Update</a></button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
