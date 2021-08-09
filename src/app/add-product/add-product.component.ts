@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../products/productInterface';
+import { Router } from '@angular/router';
+import { Category, Product } from '../products/productInterface';
+import { CategoriesService } from '../service/categories.service';
 import { ProductsService } from '../service/products.service';
 
 @Component({
@@ -15,11 +17,20 @@ export class AddProductComponent implements OnInit {
     name: '',
     description: '',
     status: true,
-    img: ''
-  }
+    image: null,
+    categoryId: 0
+  };
+
+  categories: Category[] | undefined;
 
   added: Product | undefined;
-  constructor( private productsService: ProductsService) {  }
+  constructor( 
+    private productsService: ProductsService, 
+    private router: Router, 
+    private categoriesService: CategoriesService
+  ) {  
+    this.categoriesService.getCate().subscribe( data => this.categories = data)
+  }
 
   ngOnInit(): void {  }
 
@@ -28,6 +39,11 @@ export class AddProductComponent implements OnInit {
       window.alert("Name is required");
       return;
     }
-    this.productsService.addProduct(this.product).subscribe( data => window.alert("Added product successfully."))
+    
+    this.productsService.addProduct(this.product).subscribe( data => {
+      if(data){
+        this.router.navigate(['/products'])
+      }
+    })
   }
 }

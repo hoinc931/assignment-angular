@@ -13,7 +13,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor( private activatedRoute: ActivatedRoute, private productService: ProductsService) {
     this.activatedRoute.params.subscribe(params => {
-      this.productService.getDetail(params.id).subscribe( data => {
+      params = params.id.split('-')
+      this.productService.getDetail(params[0], params[1]).subscribe( data => {
         this.product = data
       })
     })

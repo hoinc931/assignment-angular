@@ -9,13 +9,14 @@ import { ProductsComponent } from './products/products.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  {path: 'products', component: ProductsComponent},
+  { path: 'products', component: ProductsComponent},
   { path: 'categories', component: CategoriesComponent},
-  {path: 'product/:id/detail', component: ProductDetailComponent},
+  { path: 'product/:id/detail', component: ProductDetailComponent},
   { path: 'product-add', component: AddProductComponent},
   { path: 'product-update/:id', component: UpdateProductComponent},
+  // { path: 'category/:id', component: ProductsComponent},
 
   { path: '**', component: NotFoundComponent}
 ];

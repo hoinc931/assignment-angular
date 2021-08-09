@@ -3,5 +3,11 @@ export interface Product{
     name: string,
     description: string,
     status: boolean,
-    img: string
+    image: File | null,
+    categoryId: number,
+}
+
+export interface Category{
+    id:number,
+    name: string
 }
